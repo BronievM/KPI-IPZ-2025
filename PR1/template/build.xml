@@ -1,25 +1,21 @@
 <project name="Template" default="signJAR" basedir=".">
-
 <!-- ================== Application Properties =================== -->  
   <property name="app.name" value="PR1" />
   <property name="app.version" value="0.1" />
   <property name="app.title" value="PR1" />
   <property name="app.author" value="Maksym Kulikov" />
   <property name="app.company" value="By Broniev" />
-
-  <property name="sourceDir" value="src/main/java" />
-  <property name="outputDir" value="out/eclipse-classes" />
-  <property name="buildDir" value="out/build" />
+  <property name="sourceDir" value="src" />
+  <property name="buildDir" value="out" />
+  <property name="outputDir" value="${buildDir}/production/template" />
   <property name="resourceDir" value="src/res" />
   <property name="libDir" value="lib" />
-
-<!-- ================== JAR Properties =================== -->  
-  <property name="jar.mainClass" value="com.lab111.TestMain" />
-  <property name="jar.name" value="${app.name}.jar" />
-  <property name="jar.keyStore" value="${basedir}/out/tempKey.store" />
-  <property name="jar.keyPass" value="telpat" />
-  <property name="jar.keyAlias" value="tempAlias" />
-  
+<!-- ================== JAR Properties =================== -->
+    <property name="jar.mainClass" value="com.lab111.TestMain" />
+    <property name="jar.name" value="${app.name}.jar" />
+    <property name="jar.keyStore" value="${basedir}/out/tempKey.store" />
+    <property name="jar.keyPass" value="telpat" />
+    <property name="jar.keyAlias" value="tempAlias" />
 <!--  ==================== Compilation Control Options ==================== -->
    <property name="compile.debug"       value="true"/>
    <property name="compile.deprecation" value="false"/>
@@ -29,27 +25,23 @@
         <include name="*.jar"/>
     </fileset>
    </path>
-  
 <!-- ==================== Clean Target ================================== --> 
     <target name="clean" 
             description="Clean build dirs">
       <delete dir="${buildDir}" />      
     </target>
-
 <!-- ==================== Prepare Target ================================== -->
     <target name="prepare"
             depends="clean"
             description="Prepare build dirs">
-      <mkdir  dir="${buildDir}"/>
-      <mkdir  dir="${buildDir}/output"/>
-      <mkdir  dir="${buildDir}/web-apps"/>
+      <mkdir dir="${buildDir}"/>
+      <mkdir dir="${buildDir}/output"/>
+      <mkdir dir="${buildDir}/web-apps"/>
     </target>
-
 <!-- ==================== Compile Target ================================== -->
     <target name="compile" 
             depends="prepare"
             description="Compile Java sources">
-
       <javac srcdir="${sourceDir}"
             destdir="${buildDir}/output"
               debug="${compile.debug}"
@@ -60,12 +52,10 @@
       	includeantruntime="false">
           <classpath refid="compile.classpath"/>
       </javac>
-
       <copy  todir="${buildDir}/output">
         <fileset dir="${sourceDir}" excludes="**/*.java"/>
       </copy>
     </target>
-
 <!-- ==================== Create JAR archive Target ================================== -->    
     <target name="createJAR" 
             depends="compile"
@@ -86,7 +76,6 @@
               </manifest>           
         </jar>
     </target>
-
 <!-- ==================== Generate Key for JAR signing Target ================================== -->      
    <target name="generateKey"
            description="Generates Key for JAR signing">
@@ -99,9 +88,6 @@
         </dname>
       </genkey>     
     </target>
-
-  
-  
 <!-- ==================== FixStyle Target ================================== -->
       <target name="fixstyle" 
               description="Fix Style in source code" >
@@ -111,7 +97,6 @@
                  includesfile="fixstyle.list"
         />
      </target>
-    
 <!-- ==================== JAR Singing Target ================================== -->     
     <target name="signJAR" 
             depends="createJAR,generateKey"
@@ -119,33 +104,32 @@
         <exec dir="${buildDir}" executable="jarsigner">
           <arg line="-keystore ${jar.keyStore} -storepass ${jar.keyPass} ${jar.name} ${jar.keyAlias}"/>
         </exec>
-        <delete file="${buildDir}/myKeystore" />
+        <delete file="${buildDir}/myKeystore"/>
     </target>
-
-   
 <!-- ==================== Make zip Target ================================== -->
       <target name="make-zip-project" 
               description="Zip all project tree from basedir">
-        <tstamp />
+        <tstamp/>
         <zip destfile="../${app.name}-${DSTAMP}-${TSTAMP}.zip"
-             basedir="${basedir}" 
-             excludes="out/**"/>
+             basedir="${basedir}" excludes="out/**"/>
       </target>
 <!-- ==================== generate doc by javadoc Target ================================== -->
 	<target name="generate_javadoc"
-	 description="Zip all project tree from basedir">
-		<javadoc sourcepath="${sourceDir}" destdir="doc" author="yes" version="yes" access="private">
+            description="Zip all project tree from basedir">
+		<javadoc sourcepath="${sourceDir}"
+                 destdir="doc" author="yes"
+                 version="yes" access="private">
 		</javadoc>
 	</target>
-
-
 <!-- = 2 Variant = -->
     <target name="make-all-jar"
             description="Create JAR with all project files">
-        <jar destfile="${basedir}/${app.name}-all.jar">
-            <fileset dir="${basedir}" includes="**/*.java,**/*.js,**/*.html,**/*.htm"/>
+        <mkdir dir="${basedir}/out"/>
+        <jar destfile="${basedir}/out/${app.name}-all.jar">
+            <fileset dir="${basedir}"
+                     includes="**/*.java,**/*.js,**/*.html,**/*.htm"/>
         </jar>
+        <copy file="${basedir}/out/${app.name}-all.jar"
+              todir="${basedir}/"/>
     </target>
-
-
 </project>
