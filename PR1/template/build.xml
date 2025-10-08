@@ -121,6 +121,7 @@
                  version="yes" access="private">
 		</javadoc>
 	</target>
+
 <!-- = 2 Variant = -->
     <target name="make-all-jar"
             description="Create JAR with all project files">

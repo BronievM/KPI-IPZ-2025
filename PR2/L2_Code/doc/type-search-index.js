@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"main.java.com.lab111","l":"Class1"},{"p":"main.java.com.lab111","l":"Class2"},{"p":"main.java.com.lab111","l":"Class3"},{"p":"main.java.com.lab111","l":"Interface1"},{"p":"main.java.com.lab111","l":"Interface2"},{"p":"main.java.com.lab111","l":"Interface3"},{"p":"main.java.com.lab111","l":"Main"}]
