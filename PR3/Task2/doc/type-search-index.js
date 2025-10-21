@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"Flyweight","l":"Coords"},{"p":"Flyweight","l":"GraphicObject"},{"p":"<Unnamed>","l":"Main"},{"p":"Flyweight","l":"Pixel"},{"p":"Flyweight","l":"PixelFactory"},{"p":"Flyweight","l":"RectangleImage"}]
