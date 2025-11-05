@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"work4.Strategy","l":"BubbleSortStrategy"},{"p":"work4.Strategy","l":"IntArray"},{"p":"<Unnamed>","l":"Main"},{"p":"work4.Strategy","l":"SelectionSortStrategy"},{"p":"work4.Strategy","l":"SortStrategy"}]
