@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"work4.Iterator","l":"FilteredStringIterator"},{"p":"work4.Iterator","l":"IterableCollection"},{"p":"work4.Iterator","l":"Iterator"},{"p":"<Unnamed>","l":"Main"},{"p":"work4.Iterator","l":"StringCondition"},{"p":"work4.Iterator","l":"StringIterator"},{"p":"work4.Iterator","l":"StringList"}]
