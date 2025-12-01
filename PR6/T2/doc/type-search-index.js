@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"work6","l":"IntegerList"},{"p":"work6","l":"Iterator"},{"p":"<Unnamed>","l":"Main"},{"p":"work6","l":"OrderedIntegerList"},{"p":"work6","l":"OrderedIterator"}]
